@@ -135,44 +135,13 @@ void whileBattle(int& playerHP, int& oppHP) {
 
     cout << "Battle ended at " << turn << " turns" << endl;
 
-    if(playerHP > 0) {
+    if (playerHP > 0) {
         cout << "Player wins!" << endl;
     } else {
         cout << "Opponent wins. :(" << endl;
     }
 }
 
-void gameMenu() {
-	int choice;
-	string inventory[] = {"Cheese", "String", "Thunderbolt", "Feather"};
-	int balance = 9;
-	
-	do { 
-		cout << "Welcome to MOIRA - Menu/Inventory" << endl;
-		cout << "1. Check inventory \n";
-		cout << "2. Check balance \n";
-		cout << "3. Exit \n";
-		
-		cout << "Enter your choise [1-3]: ";
-		cin >> choice;
-		
-		switch (choice) {
-			case 1:
-				for (string item : inventory) {
-					cout << item << endl;
-				}
-				break;
-			case 2:
-				cout << "Your balance is " << balance << " gold. \n";
-				break;
-			case 3:
-				cout << "Exiting...\n";
-				break;
-			default:
-				cout << "Invalid! Try again. \n";
-		}
-	} while (choice != 3); 
-} // a while loop might not even run once, but a do while loop will run at minimum once
 
 
 int main() {
@@ -191,7 +160,6 @@ int main() {
     // int Opp = 100;
 
     // whileBattle(Player, Opp);
-    // gameMenu(); 
     //example for do-while loop^
 
 
