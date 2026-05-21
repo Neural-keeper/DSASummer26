@@ -37,21 +37,21 @@ void strings() {
     cout << "1st letter of word/string A: " << A[0] << endl;
 }
 
-// void vectors() {
-//     //dynamic arrays
-//     //section on vectors later
-// }
+void vectors() {
+    //dynamic arrays
+    //section on vectors later
+}
 
-// vector<int> addToVector(vector<int> nums, int addedElem) {
-//     nums.push_back(addedElem);
-//     return nums;
-// }
+vector<int> addToVector(vector<int> nums, int addedElem) {
+    nums.push_back(addedElem);
+    return nums;
+}
 
-// void printVector(vector<int> nums) {
-//     for(int i = 0; i < nums.size(); i++) {
-//         cout << nums[i] << ' ';
-//     }
-// }
+void printVector(vector<int> nums) {
+    for(int i = 0; i < nums.size(); i++) {
+        cout << nums[i] << ' ';
+    }
+}
 
 void arrExamp() {
     int intArr[] = {10, 15, 20, 30, 45, 50};
@@ -142,6 +142,39 @@ void whileBattle(int& playerHP, int& oppHP) {
     }
 }
 
+void gameMenu() {
+	int choice;
+	string inventory[] = {"Cheese", "String", "Thunderbolt", "Feather"};
+	int balance = 9;
+	
+	do { 
+		cout << "Welcome to MOIRA - Menu/Inventory" << endl;
+		cout << "1. Check inventory \n";
+		cout << "2. Check balance \n";
+		cout << "3. Exit \n";
+		
+		cout << "Enter your choise [1-3]: ";
+		cin >> choice;
+		
+		switch (choice) {
+			case 1:
+				for (string item : inventory) {
+					cout << item << endl;
+				}
+				break;
+			case 2:
+				cout << "Your balance is " << balance << " gold. \n";
+				break;
+			case 3:
+				cout << "Exiting...\n";
+				break;
+			default:
+				cout << "Invalid! Try again. \n";
+		}
+	} while (choice != 3); 
+} // a while loop might not even run once, but a do while loop will run at minimum once
+
+
 int main() {
     // helloWorld();
     // sumof2();
@@ -158,6 +191,8 @@ int main() {
     // int Opp = 100;
 
     // whileBattle(Player, Opp);
+    // gameMenu(); 
+    //example for do-while loop^
 
 
     return EXIT_SUCCESS;
