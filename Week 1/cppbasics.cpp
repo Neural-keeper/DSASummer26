@@ -40,6 +40,7 @@ void strings() {
 void vectors() {
     //dynamic arrays
     //section on vectors later
+    //you'll use vectors for creating stacks 
 }
 
 vector<int> addToVector(vector<int> nums, int addedElem) {

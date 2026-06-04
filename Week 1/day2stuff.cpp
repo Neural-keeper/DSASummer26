@@ -49,8 +49,8 @@ void sumof2() {
 }
 
 void strings() {
-    string A = "Zapple";
-    string B = "Pears";
+    string A = "Zebra";
+    string B = "Elephant";
     string combined = A + B;
     string output = A + ' ' + B;
 
@@ -61,10 +61,10 @@ void strings() {
 
     cout << "1st letter of word/string A: " << A[0] << endl;
 
-    if (A < B) {
-        cout << A << " comes alphabetically before " << B << endl;
-    } else {
+    if (A > B) {
         cout << B << " comes alphabetically before " << A << endl;
+    } else {
+        cout << A << " comes alphabetically before " << B << endl;
     }
 }
 
@@ -82,7 +82,7 @@ void strings() {
 void daytonum() {
     enum Day {sun, mon, tue, wed, thu, fri, sat}; 
 
-    Day today = sun;
+    Day today = thu;
 
     switch (today) {
         case sun:
@@ -92,7 +92,7 @@ void daytonum() {
             cout << "2\t";
             break;
         case tue:
-            cout << "3\t";
+            cout << "3\t";\
             break;
         case wed:
             cout << "4\t";
@@ -141,7 +141,7 @@ void gameMenu() {
     do {
         cout << "Welcome to MOIRA - Menu/Inventory" << endl;
         cout << "1. Check inventory" << endl;
-        cout << "2. Cehck balance" << endl;
+        cout << "2. Check balance" << endl;
         cout << "3. Exit" << endl;
 
         cout << "Enter your choice [1-3]: ";
