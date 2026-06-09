@@ -362,7 +362,7 @@ int main() {
     // Circle.addFriend("Jusia");
     // Circle.addFriend("Kian");
 
-    // Circle.passStaff(30);
+    // Circle.passStaff(3);
 
     return 0;
 }
