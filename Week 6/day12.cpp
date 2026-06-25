@@ -183,6 +183,14 @@ int main() {
     tree.addChild(driveC, "Users");
 
     cout << "Tree was successfully built!" << endl;
+    tree.printPostOrder();
+
+    Position<string> driveE = tree.addChild(root, "Drive_E");
+    tree.addChild(driveD, "Malicious");
+    tree.addChild(driveE, "Documents");
+    
+    cout << "Tree was successfully updated!" << endl;
+    tree.printPostOrder();
 
     return 0;
 }
