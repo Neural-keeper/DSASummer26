@@ -100,7 +100,7 @@ public:
     bool isExternal() const { return (v == nullptr || v->children.empty()); }
     bool isInternal() const { return !isExternal(); }
 
-    bool operator==(const Position& p) const { return v = p.v && tree = p.tree; }
+    bool operator==(const Position& p) const { return v == p.v && tree == p.tree; } //small fix
     bool operator!=(const Position& p) const { return !(*this == p); }
 
     friend class LinkedTree<E>;
@@ -132,6 +132,15 @@ private:
         cout << v->element << ", "; 
     } // our print helper - also recursive post order traversal
 
+    int heightHelper(Node<E>* v) const {
+        if (v == nullptr || v->children.empty()) return 0; // no tree or external node
+        int maxHeight = 0;
+        for (Node<E>* child : v->children) {
+            maxHeight = max(maxHeight, heightHelper(child));
+        } // recursive call for every child
+        return 1 + maxHeight;
+    } // recursive helper for finding height of tree
+
 public:
     LinkedTree() : rootNode(nullptr), treeSize(0) {}
     ~LinkedTree() { deleteSubtree(rootNode); }
@@ -157,6 +166,18 @@ public:
         parentNode->children.push_back(childNode);
         treeSize++;
         return Position<E>(childNode, this);
+    }
+
+    //NEW - depth of a node at position p
+    int depth(const Position<E>& p) {
+        if (p->isRoot()) return 0; //base case, node p is root
+        return 1 + depth(p.parent());
+    }
+
+    // NEW - height of the tree
+    int height() const {
+        if (empty()) return -1; //empty tree
+        return heightHelper(rootNode);
     }
 
     void printPostOrder() {
@@ -191,6 +212,9 @@ int main() {
     
     cout << "Tree was successfully updated!" << endl;
     tree.printPostOrder();
+
+    cout << "Tree height: " << tree.height() << endl; // Expected: 3
+    cout << "Depth of Program_Files: " << tree.depth(progFiles) << endl; // Expected: 2
 
     return 0;
 }
