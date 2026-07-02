@@ -350,6 +350,64 @@ It's fast because you just access through indexing.
 */
 
 /*
+template <typename T>
+class BinaryTree {
+private:
+    vector<T> tree;
+    const string EMPTY = "#"; //cannot be changed
+
+public:
+    BinaryTree() {
+        tree.push_back(EMPTY); //making sure a root exists for insertion into
+    }
+
+    void set_root(T value) {
+        tree[0] = value;
+    }
+
+    void set_left(int parent_index, T value) {
+        int left_index = 2 * parent_index + 1; // because our array is 0 indexed
+        ensure_capacity(left_index);
+        tree[left_index] = value;
+    }
+
+    void set_right(int parent_index, T value) {
+        int right_index = 2 * parent_index + 2;
+        ensure_capacity(left_index);
+        tree[left_index] = value;
+    }
+
+    // Expand the vector if the index is out of range
+    void ensure_capacity(int index) {
+        if (index >= tree.size()) {
+            tree.resize(index + 1, EMPTY);
+        }
+    }
+
+    void display() {
+        std::cout << "Tree contents: ";
+        for (const auto& node : tree) {
+            std::cout << node << " ";
+        }
+        std::cout << std::endl;
+    }
+};
+
+int main() {
+    BinaryTree tree;
+    tree.set_root("A");
+    tree.set_left(0, "B");
+    tree.set_right(0, "C");
+    
+    // Even if we skip indices, the vector handles the growth
+    tree.set_right(2, "Z"); 
+
+    tree.display();
+    return 0;
+}
+*/
+
+/*
 // DEMONSTRATION
 int main() {
     cout << "=========================================" << endl;
