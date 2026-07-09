@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> // for the "sort" function
 
 using namespace std;
 
@@ -20,7 +20,7 @@ int kruskalMST(int V, vector<Edge>& edges) {
         return a.wt < b.wt;
     });
 
-    // Initialize DSU tracking arrays
+    // Initialize DSU tracking arrays, V is the number of vertices
     vector<int> parent(V);
     for (int i = 0; i < V; i++) parent[i] = i;
 
@@ -35,18 +35,18 @@ int kruskalMST(int V, vector<Edge>& edges) {
         // If parents do not match, adding this edge creates no structural cycles
         if (root_src != root_dest) {
             total_mst_weight += e.wt;
-            parent[root_src] = root_dest; // Union operation
+            parent[root_src] = root_dest; // Union - setting their parents as the same
             edges_counted++;
-            if (edges_counted == V - 1) break; // Optimization rule
+            if (edges_counted == V - 1) break; // stops when it gets to the max edges for MST
         }
     }
     return total_mst_weight;
 }
 
 int main() {
-    int V = 4;
+    int V = 6;
     vector<Edge> edges = {
-        {0, 1, 1}, {1, 2, 3}, {0, 2, 5}, {2, 3, 2}
+        {0, 1, 4}, {0, 2, 2}, {1, 2, 5}, {1, 3, 10}, {1, 5, 12}, {2, 3, 3}, {3, 5, 11}, {2, 4, 1}, {4, 5, 8}, {3, 4, 4}
     };
 
     cout << "Total Kruskal's MST Weight: " << kruskalMST(V, edges) << "\n";

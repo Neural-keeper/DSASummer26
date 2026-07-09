@@ -28,6 +28,11 @@ Navigate to `edgelist.cpp` for the code.
 
 Likely the simplest form of graph implementations. It's what its name suggests: a list of edges. This is particularly useful for Kruskal's where you only care about the edges themselves as objects, and don't care about the structural whole.
 
+## Incidence Matrix
+There's code for this in `day15.cpp` if you'd like. 
+
+Essentially, it's a 2d matrix, where the rows represent the vertices and the columns represent the edges. We say a vertex is incident to the edge if it is one of the endpoints of that edge. This is useful for directed graphs. We use `1` if it is incident and the destination vertex, `0` if it's not incident, and `-1` if it's the source vertex. 
+
 ---
 
 # Step Two

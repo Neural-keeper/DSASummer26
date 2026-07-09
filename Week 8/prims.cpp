@@ -32,14 +32,17 @@ int primMST(int start, int V, const vector<vector<pair<int, int>>>& adj) {
 }
 
 int main() {
-    int V = 4;
-    vector<vector<pair<int, int>>> adj(V);
-    // Standard triangle graph with a central chord
-    adj[0].push_back({1, 1}); adj[1].push_back({0, 1});
-    adj[1].push_back({2, 3}); adj[2].push_back({1, 3});
-    adj[0].push_back({2, 5}); adj[2].push_back({0, 5});
-    adj[2].push_back({3, 2}); adj[3].push_back({2, 2});
+    int numNodes = 6;
+    vector<vector<pair<int, int>>> adj(numNodes); // adjacency list rep
 
-    cout << "Total Prim's MST Weight: " << primMST(0, V, adj) << "\n";
+    // A=0, B=1, C=2, D=3, E=4, F=5
+    adj[0] = {{1, 4}, {2, 2}};
+    adj[1] = {{0, 4}, {2, 5}, {3, 10}, {5, 12}};
+    adj[2] = {{0, 2}, {1, 5}, {3, 3}, {4, 1}};
+    adj[3] = {{1, 10}, {2, 3}, {4, 4}, {5, 11}};
+    adj[4] = {{2, 1}, {3, 4}, {5, 8}};
+    adj[5] = {{1, 12}, {3, 11}, {4, 8}};
+
+    cout << "Total Prim's MST Weight: " << primMST(0, numNodes, adj) << "\n";
     return 0;
 }
